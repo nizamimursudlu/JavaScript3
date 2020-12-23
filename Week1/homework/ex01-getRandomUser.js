@@ -1,6 +1,8 @@
 const button = document.getElementById("button");
 button.addEventListener('click', randomFriend);
 
+const mistake = document.getElementById("mistake")
+
 const url = "https://www.randomuser.me/api";
 
 
@@ -10,24 +12,24 @@ const url = "https://www.randomuser.me/api";
 
 
 
-// function randomFriend() {
+function randomFriend() {
 
-//   const xhr = new XMLHttpRequest();
-//   xhr.open('GET', url);
+  const xhr = new XMLHttpRequest();
+  xhr.open('GET', url);
 
-//   xhr.onload = function () {
-//     if (xhr.status < 400) {
-//       const friendData = JSON.parse(xhr.responseText)
-//       console.log(friendData)
-//     } else {
-//       console.log("HTTP Error", xhr.status)
-//     }
-//     xhr.onerror = function () {
-//       alert('Request failed');
-//     };
-//   }
-//   xhr.send();
-// }
+  xhr.onload = function () {
+    if (xhr.status < 400) {
+      const friendData = JSON.parse(xhr.responseText)
+      console.log(friendData)
+    } else {
+      mistake.innerHTML = `ERROR ${xhr.status}`
+    }
+    xhr.onerror = function () {
+      alert('Request failed');
+    };
+  }
+  xhr.send();
+}
 
 // AXIOS GET Request
 
@@ -35,5 +37,8 @@ const url = "https://www.randomuser.me/api";
 function randomFriend() {
   axios.get(url)
     .then(respose => console.log(respose))
-    .catch(error => console.log(error))
+    .catch(function (error) {
+      console.log(error)
+      mistake.innerHTML = `E${error}`
+    })
 }
