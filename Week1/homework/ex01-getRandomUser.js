@@ -3,7 +3,7 @@ button.addEventListener('click', randomFriend);
 
 const mistake = document.getElementById("mistake")
 
-const url = "https://www.randomuser.me/api";
+const url = "https://www.randomuser.me/apii";
 
 
 
@@ -39,6 +39,6 @@ function randomFriend() {
     .then(respose => console.log(respose))
     .catch(function (error) {
       console.log(error)
-      mistake.innerHTML = `E${error}`
+      mistake.innerHTML = `${error}`
     })
 }

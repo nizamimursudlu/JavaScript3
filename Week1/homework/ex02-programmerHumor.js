@@ -2,6 +2,7 @@ const button = document.getElementById("button");
 button.addEventListener('click', getJoke);
 
 let image = document.getElementById("img")
+const mistake = document.getElementById("mistake")
 
 
 const url = "https://xkcd.now.sh/?comic=latest1";
@@ -34,15 +35,15 @@ function getJoke() {
 // AXIOS GET Request
 
 
-// function getJoke() {
-//   axios.get(url)
-//     .then(function (respose) {
-//       image.src = `${respose.data.img}`
-//       console.log(respose)
-//     })
+function getJoke() {
+  axios.get(url)
+    .then(function (respose) {
+      image.src = `${respose.data.img}`
+      console.log(respose)
+    })
 
-//     .catch(function (error) {
-//       console.log(error)
-//       mistake.innerHTML = `${error}`
-//     })
-// }
+    .catch(function (error) {
+      console.log(error)
+      mistake.innerHTML = `${error}`
+    })
+}
