@@ -1,25 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-    />
-    <meta name="theme-color" content="#000000" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="mobile-web-app-capable" content="yes" />
-    <meta name="format-detection" content="telephone=no" />
-    <link rel="apple-touch-icon" href="./hyf.png" />
-    <link rel="shortcut icon" type="image/png" href="./hyf.png" />
-    <title>HackYourRepo</title>
-    <link
-      href="https://fonts.googleapis.com/css?family=Roboto:400,700"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="./style.css" />
-  </head>
-  <body>
-    <script src="./script.js"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="format-detection" content="telephone=no" />
+  <link rel="apple-touch-icon" href="./hyf.png" />
+  <link rel="shortcut icon" type="image/png" href="./hyf.png" />
+  <title>HackYourRepo</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+  <header>
+    <div id="dropdown-menu">
+      <form action="/action_page.php">
+        <label>HYF Repositories</label>
+        <select id="select">
+          <option value="0">SampleRepo1</option>
+          <option value="1">AndAnotherOne</option>
+          <option value="2">HYF-Is-The-Best</option>
+        </select>
+      </form>
+
+    </div>
+    <main>
+      <div id="container">
+
+        <div id="repository">
+          <div class="horisontal">
+            <h4>Repository:</h4>
+            <p id="repository-name"></p>
+          </div>
+          <div class="horisontal">
+            <h4>Description:</h4>
+            <p id="repository-description"></p>
+          </div>
+          <div class="horisontal">
+            <h4>Forks:</h4>
+            <p id="repository-forks"></p>
+          </div>
+          <div class="horisontal">
+            <h4>Updated:</h4>
+            <p id="repository-updated"></p>
+          </div>
+        </div>
+        <div id="contributors">
+          <p>Contributors</p>
+
+        </div>
+      </div>
+
+    </main>
+
+
+
+  </header>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+  <script src="./script.js"></script>
+</body>
+
 </html>
