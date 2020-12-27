@@ -18,15 +18,12 @@
 <body>
   <header>
     <div id="dropdown-menu">
-      <form action="/action_page.php">
-        <label>HYF Repositories</label>
-        <select id="select">
-          <option value="0">SampleRepo1</option>
-          <option value="1">AndAnotherOne</option>
-          <option value="2">HYF-Is-The-Best</option>
-        </select>
-      </form>
-
+      <label>HYF Repositories</label>
+      <select id="select" onchange="dropdownValue()">
+        <option value=0>SampleRepo1</option>
+        <option value=1>AndAnotherOne</option>
+        <option value=2>HYF-Is-The-Best</option>
+      </select>
     </div>
     <main>
       <div id="container">

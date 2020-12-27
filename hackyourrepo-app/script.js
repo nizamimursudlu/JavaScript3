@@ -26,18 +26,16 @@ const repositoryName = document.getElementById("repository-name");
 const repositoryDescription = document.getElementById("repository-description")
 const repositoryForks = document.getElementById("repository-forks")
 const repositoryUpdated = document.getElementById("repository-updated")
-const select = document.getElementById("select")
 
-// i was confused my the requirements
-// i guess i was not suppoers to write js at all only HTML and CSS 
-// but if you change value of the "selected one" below,
-// you can see all elemenst of the placeholderRepost, hope its ok
 
-let selectedOne = 0
-repositoryName.innerText = placeholderRepos[selectedOne].name
-repositoryDescription.innerText = placeholderRepos[selectedOne].description
-repositoryForks.innerText = placeholderRepos[selectedOne].forks
-repositoryUpdated.innerText = placeholderRepos[selectedOne].updated
+function dropdownValue() {
+  const selectedValue = document.getElementById("select").value
+  repositoryName.innerText = placeholderRepos[selectedValue].name
+  repositoryDescription.innerText = placeholderRepos[selectedValue].description
+  repositoryForks.innerText = placeholderRepos[selectedValue].forks
+  repositoryUpdated.innerText = placeholderRepos[selectedValue].updated
+
+}
 
 
 
