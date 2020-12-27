@@ -1,11 +1,14 @@
-const button = document.getElementById("button");
-button.addEventListener('click', getJoke);
+const buttonXhr = document.getElementById("button-xhr");
+buttonXhr.addEventListener('click', getJokeXhr);
+
+const buttonAxios = document.getElementById("button-axios");
+buttonAxios.addEventListener('click', getJokeAxios);
 
 let image = document.getElementById("img")
 const mistake = document.getElementById("mistake")
 
 
-const url = "https://xkcd.now.sh/?comic=latest1";
+const url = "https://xkcd.now.sh/?comic=latest";
 
 
 
@@ -14,7 +17,7 @@ const url = "https://xkcd.now.sh/?comic=latest1";
 
 
 
-function getJoke() {
+function getJokeXhr() {
   const xhr = new XMLHttpRequest();
   xhr.open('GET', url);
 
@@ -35,11 +38,10 @@ function getJoke() {
 // AXIOS GET Request
 
 
-function getJoke() {
+function getJokeAxios() {
   axios.get(url)
     .then(function (respose) {
       image.src = `${respose.data.img}`
-      console.log(respose)
     })
 
     .catch(function (error) {

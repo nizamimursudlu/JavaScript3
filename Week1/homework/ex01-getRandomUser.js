@@ -1,9 +1,12 @@
-const button = document.getElementById("button");
-button.addEventListener('click', randomFriend);
+const buttonXhr = document.getElementById("button-xhr");
+buttonXhr.addEventListener('click', randomFriendXhr);
+
+const buttonAxios = document.getElementById("button-axios");
+buttonAxios.addEventListener('click', randomFriendAxios);
 
 const mistake = document.getElementById("mistake")
 
-const url = "https://www.randomuser.me/apii";
+const url = "https://www.randomuser.me/api";
 
 
 
@@ -12,7 +15,7 @@ const url = "https://www.randomuser.me/apii";
 
 
 
-function randomFriend() {
+function randomFriendXhr() {
 
   const xhr = new XMLHttpRequest();
   xhr.open('GET', url);
@@ -34,7 +37,7 @@ function randomFriend() {
 // AXIOS GET Request
 
 
-function randomFriend() {
+function randomFriendAxios() {
   axios.get(url)
     .then(respose => console.log(respose))
     .catch(function (error) {
