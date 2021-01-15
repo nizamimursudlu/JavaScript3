@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#container {
+  width: 1000px;
+  height: 500px;
+  margin: 0 auto;
+  background-color: rgba(243, 242, 242, 0.295);
+  border-bottom: 2px solid rgba(182, 180, 180, 0.521);
+  margin-top: 50px;
+}
+#trivia {
+  width: 850px;
+  padding: 20px;
+  margin-left: 100px
+}
+h4 {
+  padding: 20px 0 20px 0
+}
+.div-question {
+  padding:  15px;
+  background-color: rgba(141, 140, 140, 0.26);
+}
+.div-question:hover {
+  cursor: pointer;
+  background-color: rgba(128, 128, 128, 0.527);
+}
+.div-answer {
+  padding:  15px;
+  margin: 15px -15px -15px -15px;
+  background-color: rgb(247, 247, 247);
+  font-weight: 700;
+}
