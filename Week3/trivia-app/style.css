@@ -33,4 +33,5 @@ h4 {
   margin: 15px -15px -15px -15px;
   background-color: rgb(247, 247, 247);
   font-weight: 700;
+  transition: 1s;
 }
