@@ -26,8 +26,6 @@ function main() {
         .catch(handleCatch)
     })
     .catch(handleCatch)
-
-
   function fetchData() {
     fetch("https://api.github.com/orgs/HackYourFuture/repos?per_page=100")
       .then(handleErrors)
@@ -41,7 +39,6 @@ function main() {
       })
       .catch(handleCatch)
   } fetchData()
-
   select.onchange = function getData() {
     fetch(`https://api.github.com/repos/HackYourFuture/${select.value}`)
       .then(handleErrors)
@@ -57,10 +54,7 @@ function main() {
         fetch(contributorsURL)
           .then(handleErrors)
           .then((result6) => {
-            console.log(result6.length)
-            if (result6.length < 5) {
-              displayContributors
-            }
+            displayContributors
             let current_page = 1;
             let rows = 5;
             divClearInfoDiv.innerHTML = ""
@@ -78,7 +72,7 @@ function main() {
                 avatar.style.width = "50px"
                 infoDiv.appendChild(avatar)
                 const aCont = document.createElement("a")
-                aCont.setAttribute("href", `https://github.com/${element8}`)
+                aCont.setAttribute("href", `https://github.com/${element8.login}`)
                 infoDiv.appendChild(aCont).innerText = element8.login
                 const divNum = document.createElement("div")
                 divNum.id = "div-num"
@@ -129,9 +123,6 @@ function main() {
               }
 
 
-
-
-
               SetupPagination(result6, rows);
             } DisplayList(result6, rows, current_page);
           })
@@ -154,6 +145,7 @@ function handleCatch(error) {
   document.getElementById("errorMessage").innerHTML = error;
 }
 function displayContributors(result2) {
+
   divClearInfoDiv.innerHTML = ""
   result2.forEach(element0 => {
     const infoDiv = document.createElement("div")
