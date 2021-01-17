@@ -16,7 +16,6 @@ divTrivia.appendChild(h4Element).innerHTML = "Try your best to figure out the an
 
 let divAnswer = document.createElement("div")
 divAnswer.classList.add("div-answer")
-// divAnswer.style.transition = "3s"
 
 const URL = "https://opentdb.com/api.php?amount=5"
 
