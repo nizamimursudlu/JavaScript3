@@ -1,16 +1,14 @@
 const arrayOfWords = ['cucumber', 'tomatos', 'avocado'];
 
-const makeAllCaps = array => {
-  return new Promise((resolve, reject) => {
-    let capsArray = array.map(word => {
-      if (typeof word === 'string') {
-        return word.toUpperCase();
-      } else {
-        reject('Error: Not all items in the array are strings!');
-      }
-    });
-    resolve(capsArray);
+const makeAllCaps = async (array) => {
+  let capsArray = array.map((word) => {
+    if (typeof word === 'string') {
+      return word.toUpperCase();
+    } else {
+      throw ('Error: Not all items in the array are strings!');
+    }
   });
+  return (capsArray);
 };
 async function fn() {
   const result = await makeAllCaps(arrayOfWords);
