@@ -43,7 +43,7 @@ main().then(json =>
 ).catch(error => console.log(error))
 
 
-async function delay() {
+function delay() {
   divAnswer.innerHTML = ''
   divAnswer.classList.remove('div-answer')
 }
