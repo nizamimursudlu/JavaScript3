@@ -54,11 +54,10 @@ function main() {
         fetch(contributorsURL)
           .then(handleErrors)
           .then((result6) => {
-            displayContributors
             let current_page = 1;
             let rows = 5;
             divClearInfoDiv.innerHTML = ""
-            function DisplayList(items, rows_per_page, page) {
+            function displayList(items, rows_per_page, page) {
               page--;
               let start = rows_per_page * page;
               let end = start + rows_per_page;
@@ -78,10 +77,10 @@ function main() {
                 divNum.id = "div-num"
                 infoDiv.appendChild(divNum).innerText = element8.contributions
               })
-              function SetupPagination(items, rows_per_page) {
+              function setupPagination(items, rows_per_page) {
                 let page_count = Math.ceil(items.length / rows_per_page);
                 for (let i = 1; i < page_count + 1; i++) {
-                  let btn = PaginationButton(i, items);
+                  let btn = paginationButton(i, items);
                   divClearInfoDiv.appendChild(btn);
                 }
                 let next = document.createElement('button');
@@ -97,34 +96,32 @@ function main() {
                   if (current_page > 1) {
                     divClearInfoDiv.innerText = ""
                     current_page = current_page - 1;
-                    DisplayList(items, rows, current_page);
+                    displayList(items, rows, current_page);
                   }
                 })
                 document.getElementById("next").addEventListener('click', function () {
                   if (current_page < page_count) {
                     divClearInfoDiv.innerText = ""
                     current_page = current_page + 1;
-                    DisplayList(items, rows, current_page);
+                    displayList(items, rows, current_page);
                   }
                 })
               }
-              function PaginationButton(page, items) {
+              function paginationButton(page, items) {
                 let button = document.createElement('button');
                 button.innerText = page;
                 if (current_page == page) button.classList.add('active');
                 button.addEventListener('click', function () {
                   divClearInfoDiv.innerHTML = ""
                   current_page = page;
-                  DisplayList(items, rows, current_page);
-                  let current_btn = document.querySelector('.pagenumbers button.active');
+                  displayList(items, rows, current_page);
+
                   button.classList.add('active');
                 });
                 return button;
               }
-
-
-              SetupPagination(result6, rows);
-            } DisplayList(result6, rows, current_page);
+              setupPagination(result6, rows);
+            } displayList(result6, rows, current_page);
           })
           .catch(handleCatch)
       })
@@ -144,23 +141,25 @@ function handleCatch(error) {
   document.getElementById("errorMessage").style.padding = "14px";
   document.getElementById("errorMessage").innerHTML = error;
 }
-function displayContributors(result2) {
 
+
+function displayContributors(result2) {
   divClearInfoDiv.innerHTML = ""
-  result2.forEach(element0 => {
-    const infoDiv = document.createElement("div")
-    divClearInfoDiv.appendChild(infoDiv)
-    infoDiv.classList.add("info-div")
-    const avatar = document.createElement("img")
-    avatar.src = element0.avatar_url
-    avatar.style.width = "50px"
-    infoDiv.appendChild(avatar)
-    const aCont = document.createElement("a")
-    aCont.setAttribute("href", `https://github.com/${element0.login}`)
-    infoDiv.appendChild(aCont).innerText = element0.login
-    const divNum = document.createElement("div")
-    divNum.id = "div-num"
-    infoDiv.appendChild(divNum).innerText = element0.contributions
-  })
+  result2
+    .forEach(element0 => {
+      const infoDiv = document.createElement("div")
+      divClearInfoDiv.appendChild(infoDiv)
+      infoDiv.classList.add("info-div")
+      const avatar = document.createElement("img")
+      avatar.src = element0.avatar_url
+      avatar.style.width = "50px"
+      infoDiv.appendChild(avatar)
+      const aCont = document.createElement("a")
+      aCont.setAttribute("href", `https://github.com/${element0.login}`)
+      infoDiv.appendChild(aCont).innerText = element0.login
+      const divNum = document.createElement("div")
+      divNum.id = "div-num"
+      infoDiv.appendChild(divNum).innerText = element0.contributions
+    })
   return result2
 }
