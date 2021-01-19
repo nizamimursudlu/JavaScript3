@@ -13,14 +13,13 @@ const h4Element = document.createElement("h4")
 divTrivia.appendChild(h4Element).innerHTML = "Try your best to figure out the answer.If you really have no clue, click on the question to reveal the answer..."
 
 
-
-let divAnswer = document.createElement("div")
-divAnswer.classList.add("div-answer")
-
 const URL = "https://opentdb.com/api.php?amount=5"
 
 async function main() {
   const response = await fetch(URL)
+  if (!response.ok) {
+    throw error
+  }
   const json = await response.json()
   return json
 }
@@ -31,19 +30,22 @@ main().then(json =>
     divQuestion.classList.add("div-question")
     divQuestion.innerHTML = element.question
     divQuestion.addEventListener('click', function () {
-      setTimeout(delay, 3000)
-      divAnswer = document.createElement("div")
+
+      let divAnswer = document.createElement("div")
       divQuestion.appendChild(divAnswer)
       divAnswer.classList.add("div-answer")
       divAnswer.innerHTML = element.correct_answer
-      console.log(element.correct_answer)
-
+      setTimeout(() => {
+        delay(divAnswer)
+      }, 2000);
     })
   })
 ).catch(error => console.log(error))
 
+function delay(remove) {
+  remove.innerHTML = ""
+  remove.classList.remove('div-answer')
 
-function delay() {
-  divAnswer.innerHTML = ''
-  divAnswer.classList.remove('div-answer')
 }
+
+
