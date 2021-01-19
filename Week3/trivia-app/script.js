@@ -28,12 +28,15 @@ main().then(json =>
     const divQuestion = document.createElement("div")
     divTrivia.appendChild(divQuestion)
     divQuestion.classList.add("div-question")
+    convertHTML(element.question)
     divQuestion.innerHTML = element.question
+
     divQuestion.addEventListener('click', function () {
 
       let divAnswer = document.createElement("div")
       divQuestion.appendChild(divAnswer)
       divAnswer.classList.add("div-answer")
+      convertHTML(element.question)
       divAnswer.innerHTML = element.correct_answer
       setTimeout(() => {
         delay(divAnswer)
@@ -48,4 +51,35 @@ function delay(remove) {
 
 }
 
+
+
+
+function converCharacter(letter) {
+  if (letter === "&") {
+    return "&amp;";
+  } else if (letter === "<") {
+    return "&lt;";
+  } else if (letter === ">") {
+    return "&gt;";
+  } else if (letter === "<") {
+    return "&lt;";
+  } else if (letter === '"') {
+    return "&qout;";
+  } else if (letter === "'") {
+    return "&apos;";
+  }
+}
+function convertHTML(str) {
+  for (i = 0; i < str.length; i += 1) {
+    let charactersToCheckFor = ["&", "<", ">", '"', "'"];
+    if (charactersToCheckFor.indexOf(str[i]) != -1) {
+      str = str.slice(0, i) +
+        converCharacter(str[i]) +
+        str.slice(i + 1)
+
+    }
+
+  }
+  return str
+}
 
