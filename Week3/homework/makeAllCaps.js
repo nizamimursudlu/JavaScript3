@@ -11,7 +11,12 @@ const makeAllCaps = async (array) => {
   return (capsArray);
 };
 async function fn() {
-  const result = await makeAllCaps(arrayOfWords);
-  console.log(result);
+  try {
+    const result = await makeAllCaps(arrayOfWords);
+    console.log(result);
+  }
+  catch {
+    console.log(error);
+  }
 }
-fn().catch(error => console.log(error));
+fn()
